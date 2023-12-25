@@ -1,2 +1,0 @@
-# OneMaster
-daily coding
