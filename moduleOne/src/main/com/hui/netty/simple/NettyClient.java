@@ -1,4 +1,4 @@
-package netty.simple;
+package hui.netty.simple;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -25,6 +25,8 @@ public class NettyClient {
                     });
             System.out.println("客户端 ok...");
             ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 6668).sync();
+            channelFuture.channel().closeFuture().sync();
+
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {

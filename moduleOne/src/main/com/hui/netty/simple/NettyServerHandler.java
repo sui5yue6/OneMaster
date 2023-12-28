@@ -1,4 +1,4 @@
-package netty.simple;
+package hui.netty.simple;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
