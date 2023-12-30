@@ -49,7 +49,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
             }
             ctx.writeAndFlush(Unpooled.copiedBuffer("hello 客户端333", CharsetUtil.UTF_8));
         }, 5, TimeUnit.SECONDS);
-        System.out.println("go on ..");
+        System.out.println("go on ........");
     }
 
     @Override
