@@ -38,7 +38,7 @@ public class MyServer {
                             channel.pipeline()
                                     .addLast("decoder", new StringDecoder())
                                     .addLast("encoder", new StringEncoder())
-                                    .addLast(new IdleStateHandler(3, 5, 7, TimeUnit.SECONDS))
+                                    .addLast(new IdleStateHandler(7, 5000, 7000, TimeUnit.SECONDS))
                                     // 没有读，就会发送心跳检测包，没有写发送。既没有读也没有写
                                     // 将会传递给下一个handler  userEventTiggered
                                     .addLast(new MyServerHandler());
