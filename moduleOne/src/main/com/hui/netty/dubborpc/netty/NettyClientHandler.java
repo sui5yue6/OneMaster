@@ -36,6 +36,10 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter implements 
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        super.exceptionCaught(ctx, cause);
+        ctx.close();
+    }
+
+    void setPara(String para) {
+        this.para = para;
     }
 }
