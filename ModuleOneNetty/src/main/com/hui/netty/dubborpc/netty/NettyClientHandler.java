@@ -18,8 +18,10 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter implements 
     // 被代理对象调用，发送数据给服务器，等待被唤醒
     @Override
     public synchronized Object call() throws Exception {
+        System.out.println("call--1");
         context.writeAndFlush(para);
         wait();
+        System.out.println("call--2");
         return result;
     }
 
@@ -30,6 +32,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter implements 
 
     @Override
     public synchronized void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("channelread--");
         result = msg.toString();
         notify(); // 唤醒等待的线程
     }

@@ -13,11 +13,16 @@ public class ClientBootstrap {
     // 这里定义协议头
     public static final String providerName = "HelloService#hello#";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // 创建一个消费者
         NettyClient customer = new NettyClient();
         HelloService service = (HelloService) customer.getBean(HelloService.class, providerName);
-        String res = service.hello("你好 dubbo");
-        System.out.println("调用结果 " + res);
+        for(;;){
+            Thread.sleep(2*1000);
+            String res = service.hello("你好 dubbo");
+            System.out.println("调用结果 " + res);
+        }
+
+
     }
 }

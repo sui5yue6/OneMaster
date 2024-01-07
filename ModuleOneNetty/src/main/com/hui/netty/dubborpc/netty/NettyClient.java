@@ -34,7 +34,7 @@ public class NettyClient {
                     }
                     // 设置发给服务器端的信息
                     client.setPara(providerName + args[0]);
-                    return executorService.submit(client).get();
+                    return executorService.submit(client).get(); // 执行是在submit中，重写的call方法中
                 });
 
 
@@ -59,7 +59,7 @@ public class NettyClient {
                             }
                         }
                 );
-        bootstrap.connect("127.0.0.1", 7000).sync();
+        bootstrap.connect("127.0.0.1", 7001).sync();
 
     }
 }
