@@ -22,4 +22,8 @@
 
     <bean id="userServiceImpl" class="com.hui.service.UserServiceImpl"></bean>
 
+
+    <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>
+
+
 </beans>

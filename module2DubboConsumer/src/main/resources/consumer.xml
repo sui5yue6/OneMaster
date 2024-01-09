@@ -14,11 +14,12 @@
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181">
     </dubbo:registry>
 
-<!--    &lt;!&ndash;    指定通信规则&ndash;&gt;-->
-<!--    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>-->
+    <!--    &lt;!&ndash;    指定通信规则&ndash;&gt;-->
+    <!--    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>-->
 
     <!--    暴露服务 ref指向服务的真正实现对象-->
     <dubbo:reference interface="com.hui.common.service.UserService" id="userService"></dubbo:reference>
 
-
+<!--    <dubbo:monitor protocol="registry"></dubbo:monitor>-->
+    <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>
 </beans>
