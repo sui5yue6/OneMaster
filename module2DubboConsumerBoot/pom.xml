@@ -10,7 +10,27 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>module2DubboConsumerBoot</artifactId>
+<dependencies>
+    <dependency>
+        <groupId>com.hui</groupId>
+        <artifactId>module2DubboCommon</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
 
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>2.3.1.RELEASE</version>
+    </dependency>
+<!--老师用的是2.0.4.R-->
+
+    <dependency>
+        <groupId>com.alibaba.boot</groupId>
+        <artifactId>dubbo-spring-boot-starter</artifactId>
+        <version>0.2.0</version>
+    </dependency>
+
+</dependencies>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
