@@ -7,7 +7,7 @@
     <context:component-scan base-package="com.hui"></context:component-scan>
 
     <!--指定当前服务名-->
-    <dubbo:application name="order-service-consumer">
+    <dubbo:application name="order-com.hui.service-consumer">
     </dubbo:application>
 
     <!--    指定注册中心位置-->
@@ -18,7 +18,7 @@
     <!--    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>-->
 
     <!--    暴露服务 ref指向服务的真正实现对象-->
-    <dubbo:reference interface="com.hui.common.service.UserService" id="userService"></dubbo:reference>
+    <dubbo:reference interface="com.hui.common.com.hui.service.UserService" id="userService"></dubbo:reference>
 
 <!--    <dubbo:monitor protocol="registry"></dubbo:monitor>-->
     <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>

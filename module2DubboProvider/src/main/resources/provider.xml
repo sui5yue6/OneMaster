@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 <!--指定当前服务名-->
-    <dubbo:application name="user-service-provider">
+    <dubbo:application name="user-com.hui.service-provider">
     </dubbo:application>
 
 <!--    指定注册中心位置-->
@@ -18,9 +18,9 @@
     </dubbo:protocol>
 
 <!--    暴露服务 ref指向服务的真正实现对象-->
-    <dubbo:service interface="com.hui.common.service.UserService" ref="userServiceImpl"></dubbo:service>
+    <dubbo:com.hui.service interface="com.hui.common.com.hui.service.UserService" ref="userServiceImpl"></dubbo:com.hui.service>
 
-    <bean id="userServiceImpl" class="com.hui.service.UserServiceImpl"></bean>
+    <bean id="userServiceImpl" class="com.hui.com.hui.service.UserServiceImpl"></bean>
 
 
     <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>

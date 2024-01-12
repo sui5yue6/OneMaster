@@ -2,14 +2,12 @@ package com.hui.service;
 
 
 import com.hui.common.bean.UserAddress;
-import com.hui.common.bean.UserOrder;
 import com.hui.common.service.OrderService;
 import com.hui.common.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,7 +20,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     UserService userService;
 
-    public List<UserOrder> initOrder(String UserId) {
+    public List<UserAddress> initOrder(String UserId) {
         List<UserAddress> userAddressList = userService.getUserAddressList(UserId);
         for (UserAddress userAddress : userAddressList) {
             System.out.println(userAddress);
