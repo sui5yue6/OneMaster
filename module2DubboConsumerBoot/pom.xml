@@ -11,21 +11,22 @@
 
     <artifactId>module2DubboConsumerBoot</artifactId>
     <dependencies>
-        <dependency>
-            <groupId>com.hui</groupId>
-            <artifactId>module2DubboCommon</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.alibaba</groupId>
-                    <artifactId>dubbo</artifactId>
-                 </exclusion>
-                <exclusion>
-                    <groupId>org.apache.curator</groupId>
-                    <artifactId>curator-framework</artifactId>
-                 </exclusion>
-            </exclusions>
-        </dependency>
+<!--        干脆不要用公共包了-->
+<!--        <dependency>-->
+<!--            <groupId>com.hui</groupId>-->
+<!--            <artifactId>module2DubboCommon</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>com.alibaba</groupId>-->
+<!--                    <artifactId>dubbo</artifactId>-->
+<!--                 </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.curator</groupId>-->
+<!--                    <artifactId>curator-framework</artifactId>-->
+<!--                 </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,7 +40,12 @@
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>0.2.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <version>1.16.18</version>
+        </dependency>
     </dependencies>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
