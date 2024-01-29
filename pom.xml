@@ -13,9 +13,12 @@
         <module>module2DubboCommon</module>
         <module>module2DubboProvider</module>
         <module>module2DubboConsumer</module>
-        <module>module3</module>
         <module>module2DubboConsumerBoot</module>
         <module>module2DubboProviderBoot</module>
+        <module>module3SentinelConsumer</module>
+        <module>module3SentinelProvider</module>
+        <module>module4eurekaProvider</module>
+        <!--        <module>module4eureka</module>-->
     </modules>
 
     <properties>

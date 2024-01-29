@@ -24,5 +24,6 @@ public class OrderController {
     @ResponseBody
     public List<UserAddress> initOrder(@RequestParam("userId") String userId) {
         return orderService.initOrder(userId);
+//        return null;
     }
 }
