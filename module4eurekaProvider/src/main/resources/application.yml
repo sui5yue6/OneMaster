@@ -5,7 +5,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka
-
+    on-demand-update-status-change: true
 
 spring:
   jpa:
