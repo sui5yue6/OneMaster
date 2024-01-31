@@ -18,6 +18,7 @@
         <module>module3SentinelConsumer</module>
         <module>module3SentinelProvider</module>
         <module>module4eurekaProvider</module>
+        <module>module4eurekaConsumer</module>
         <!--        <module>module4eureka</module>-->
     </modules>
 
