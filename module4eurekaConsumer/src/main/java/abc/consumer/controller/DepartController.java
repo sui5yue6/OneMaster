@@ -51,4 +51,9 @@ public class DepartController {
         String url = SERVICE_PROVIDER + "/provider/depart/list/";
         return restTemplate.getForObject(url, List.class);
     }
+    @GetMapping("/list2")
+    public List<Depart> listHandle2() {
+        String url = SERVICE_PROVIDER + "/provider/depart/list/";
+        return restTemplate.getForObject(url, List.class);
+    }
 }
