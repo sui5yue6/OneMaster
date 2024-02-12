@@ -16,5 +16,4 @@ public class t3 {
 
         return 0;
     }
-    // happy new year
 }
