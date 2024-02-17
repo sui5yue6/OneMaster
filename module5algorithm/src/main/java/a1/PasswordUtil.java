@@ -13,7 +13,11 @@ import java.util.*;
  */
 public class PasswordUtil {
     public static void main(String[] args) {
-        System.out.println(randomPassword(11));
+        for (int i = 0; i < 20; i++) {
+            System.out.println(randomPassword(16));
+
+        }
+
     }
 
     // 特殊字符
@@ -23,7 +27,7 @@ public class PasswordUtil {
     // 去掉i、l、o、q易混淆字符
     private static final String LOWER_WORD_CHARS = "abcdefghjkmnprstuvwxyz";
     // 去掉1、0易混淆字符
-    private static final String NUMBER_CHARS = "23456789";
+    private static final String NUMBER_CHARS = "2345678923456789";
 
 
     /**
