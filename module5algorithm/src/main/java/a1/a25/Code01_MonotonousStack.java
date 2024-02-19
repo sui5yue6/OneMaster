@@ -68,6 +68,48 @@ public class Code01_MonotonousStack {
         return res;
     }
 
+    public static int[][] f2(int n, int[] arr) {
+        int[][] res = new int[n][2];
+        Stack<List<Integer>> stack = new Stack<>();
+        for (int i = 0; i < arr.length; i++) {
+            while (!stack.empty() && arr[stack.peek().get(0)] > arr[i]) {
+                List<Integer> popList = stack.pop();
+                int left;
+                if (stack.empty()) {
+                    left = -1;
+                } else {
+                    left = stack.peek().get(stack.peek().size() - 1); // 拿到最右边的
+                }
+                for (Integer pop : popList) {
+                    res[pop][0] = left;
+                    res[pop][1] = i;
+                }
+            }
+            if (!stack.empty() && arr[stack.peek().get(0)] == arr[i]) {
+                stack.peek().add(i);
+            } else {
+                ArrayList<Integer> integers = new ArrayList<>();
+                integers.add(i);
+                stack.add(integers);
+            }
+        }
+        // 3 4 5 5 5 100
+        while (!stack.empty()) {
+            List<Integer> popList = stack.pop();
+            int left;
+            if (stack.empty()) {
+                left = -1;
+            } else {
+                left = stack.peek().get(stack.peek().size() - 1); // 拿到最右边的
+            }
+            for (Integer pop : popList) {
+                res[pop][0] = left;
+                res[pop][1] = -1;
+            }
+        }
+        return res;
+    }
+
 
     // arr = [ 3, 1, 2, 3]
     //         0  1  2  3
