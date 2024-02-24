@@ -1,7 +1,6 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.SneakyThrows;
+package juc;
 
-import java.io.UnsupportedEncodingException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 /**
  * @author Eirk
@@ -11,9 +10,9 @@ import java.io.UnsupportedEncodingException;
 public class ReadStackLog {
     public static void main(String[] args) throws JsonProcessingException {
         new Thread(new TimeWaitingThread(), "timeWaitingThread").start();
-        new Thread(new Waiting(), "Waiting").start();
-        new Thread(new Blocked(), "Blocked-1").start();
-        new Thread(new Blocked(), "Blocked-2").start();
+        new Thread(new Waiting(), "juc.Waiting").start();
+        new Thread(new Blocked(), "juc.Blocked-1").start();
+        new Thread(new Blocked(), "juc.Blocked-2").start();
     }
 
 }
