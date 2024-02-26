@@ -1,4 +1,9 @@
 import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -22,6 +27,12 @@ public class t1 {
         ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
         readWriteLock.readLock().lock();
         readWriteLock.writeLock().lock();
+
+        ArrayBlockingQueue<Integer> integers = new ArrayBlockingQueue<Integer>(5);
+        LinkedBlockingQueue<Integer> integers2 = new LinkedBlockingQueue<>();
+
+        PriorityBlockingQueue<Integer> integers3 = new PriorityBlockingQueue<>();
+
 
     }
 }
