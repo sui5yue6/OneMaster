@@ -123,7 +123,7 @@ public class Code02_TSP {
         }
         return dp[cityStatus][start];
     }
-
+    // 这个动态规划真的难以描述，以至于老师都不讲？
     public static int t4(int[][] matrix) {
         int N = matrix.length; // 0...N-1
         int statusNums = 1 << N;
@@ -269,7 +269,8 @@ public class Code02_TSP {
         for (int i = 0; i < 20000; i++) {
             int[][] matrix = generateGraph(len, value);
             int origin = (int) (Math.random() * matrix.length);
-            int ans1 = f1(matrix);
+//            int ans1 = f1(matrix);
+            int ans1 = f2(matrix);
 //            int ans1 = t3(matrix);
             int ans2 = t4(matrix);
             int ans3 = tsp2(matrix, origin);
@@ -313,6 +314,75 @@ public class Code02_TSP {
     }
 
     public static int p1(int[][] matrix, List<Integer> set, int start) {
-
+        // 看看还有几个城市
+        int cityNum = 0;
+        for (int i = 0; i < set.size(); i++) {
+            if (set.get(i) != null) {
+                cityNum++;
+            }
+        }
+        if (cityNum == 1) { // 说明要往回走
+            return matrix[start][0];
+        }
+        int ans = Integer.MAX_VALUE;
+        set.set(start, null);
+        for (int i = 0; i < set.size(); i++) {
+            // 如果没有走过，就需要递归走
+            if (set.get(i) != null) {
+                int tmp = p1(matrix, set, i) + matrix[start][i];
+                ans = Math.min(ans, tmp);
+            }
+        }
+        set.set(start, 1);
+        return ans;
     }
+
+
+    public static int f2(int[][] matrix) {
+        // 如果城市去过了，就添加到set中
+        int length = matrix.length;
+        int state = 0;
+        for (int i = 0; i < length; i++) {
+            state |= (1 << i);
+        }
+        // 为什么dp是二维的，因为需要记录start的位置。
+        // 所谓的状态压缩，和记忆化搜索应该没有啥区别，只是代码难写一些。初始化的给之就给-1
+        int[][] dp = new int[1 << (length + 1)][length];
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
+                dp[i][j] = -1;
+            }
+        }
+        int ans = p2(matrix, state, dp, 0);
+        return ans;
+    }
+
+    // 这个傻缓存，可以彻底的改成动态规划
+    public static int p2(int[][] matrix, int state, int[][] dp, int start) {
+        // 先判断存不存在
+        if (dp[state][start] != -1) {
+            return dp[state][start];
+        }
+        // 为运算需要知道city中是否只有一个1
+        if (state == (state & (~state + 1))) {
+            return matrix[start][0];
+        }
+        // 把start的1去掉
+        state = state & (~(1 << start));
+
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < matrix.length; i++) {
+            // 如果没有走过，就需要递归走
+            if (i != start && (state & (1 << i)) != 0) {
+                int tmp = p2(matrix, state, dp, i) + matrix[start][i];
+                ans = Math.min(ans, tmp);
+            }
+        }
+        state = state | (1 << start);
+        dp[state][start] = ans;
+        return ans;
+    }
+
+
+
 }
